@@ -1,12 +1,20 @@
 Hi
 
-Here are some basic startup source codes for Amiga
+Here are some basic 68k assembly startup sources for Amiga.
 
 Features at the moment include:
+- no external includes or other files
 - switching off the OS
 - setting an AGA screen mode and custom copperlist
-- setting up a chunky to planar routine (Kalms')
+- setting up a chunky to planar routine (from Kalms)
 - handling triple buffering
-- vblank interrupt for timing and updating copperlist with new bitplanes and/or palette
-- 2 variations, 220x176 15 bit HAM8 mode and 320x176 8 bit palette mode
-- Tested with PhxAss
+- setting a vblank interrupt for timing etc
+- updating copperlist with new bitplanes and/or palette in vblank
+- variation with 220x176 15 bit HAM8 mode
+- variation with 320x176 8 bit palette mode
+
+This has been tested with PhxAss and should compile simply by running:
+	"phxass 8bpl-test.s"
+	"phxass ham-test.s"
+
+The init stuff is mostly written by "some people".

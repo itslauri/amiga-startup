@@ -1,6 +1,6 @@
 
 ; test program for ham startup code
-; compiles with phxass at least
+; compiles with PhxAss at least
 
 	MACHINE 68020
 

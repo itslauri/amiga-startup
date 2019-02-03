@@ -1,6 +1,6 @@
 
 ; test program for 8 bitplane startup code
-; compiles with phxass at least
+; compiles with PhxAss at least
 
 	MACHINE 68020
 
