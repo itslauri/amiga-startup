@@ -1,0 +1,12 @@
+Hi
+
+Here are some basic startup source codes for Amiga
+
+Features at the moment include:
+- switching off the OS
+- setting an AGA screen mode and custom copperlist
+- setting up a chunky to planar routine (Kalms')
+- handling triple buffering
+- vblank interrupt for timing and updating copperlist with new bitplanes and/or palette
+- 2 variations, 220x176 15 bit HAM8 mode and 320x176 8 bit palette mode
+- Tested with PhxAss
