@@ -4,7 +4,7 @@
 
 	include "c2p/c2p1x1_8_c5_gen.s"
 
-	section code
+	section code,code
 
 sync: 	dc.l 0
 exitflag: dc.w 0
@@ -70,43 +70,43 @@ setBitplanes
 	move.w d0,bplptr1+2
 
 	swap d0
-	add.l #BPLSIZE, d0
+	add.l #BPLSIZE,d0
 	move.w d0,bplptr2+6
 	swap d0
 	move.w d0,bplptr2+2
 
 	swap d0
-	add.l #BPLSIZE, d0
+	add.l #BPLSIZE,d0
 	move.w d0,bplptr3+6
 	swap d0
 	move.w d0,bplptr3+2
 
 	swap d0
-	add.l #BPLSIZE, d0
+	add.l #BPLSIZE,d0
 	move.w d0,bplptr4+6
 	swap d0
 	move.w d0,bplptr4+2
 
 	swap d0
-	add.l #BPLSIZE, d0
+	add.l #BPLSIZE,d0
 	move.w d0,bplptr5+6
 	swap d0
 	move.w d0,bplptr5+2
 	
 	swap d0
-	add.l #BPLSIZE, d0
+	add.l #BPLSIZE,d0
 	move.w d0,bplptr6+6
 	swap d0
 	move.w d0,bplptr6+2
 
 	swap d0
-	add.l #BPLSIZE, d0
+	add.l #BPLSIZE,d0
 	move.w d0,bplptr7+6
 	swap d0
 	move.w d0,bplptr7+2
 
 	swap d0
-	add.l #BPLSIZE, d0
+	add.l #BPLSIZE,d0
 	move.w d0,bplptr8+6
 	swap d0
 	move.w d0,bplptr8+2
@@ -284,7 +284,7 @@ BPLCON3VAL set $0020
 COLORREGVAL set $180
 		rept 32
 			dc.w	BPLCON3,BPLCON3VAL,COLORREGVAL,$0000,BPLCON3,BPLCON3VAL|$0200,COLORREGVAL,$0000
-COLORREGVAL set COLORREGVAL + 2
+COLORREGVAL set COLORREGVAL+$2
 		endr
 BPLCON3VAL set BPLCON3VAL+$2000
 	endr

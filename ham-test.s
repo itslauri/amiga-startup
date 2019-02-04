@@ -7,7 +7,7 @@
 	include "init.s"
 	include "init-ham.s"
 
-	section code
+	section code,code
 
 main
 	bsr init ; switch off system and set custom copperlist etc
@@ -64,7 +64,7 @@ drawTestScreen
 screen
 	blk.w 220*176,0
 
-	section data
+	section data,data
 
 texture
 	incbin "data/texture.c15"

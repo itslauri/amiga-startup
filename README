@@ -11,8 +11,14 @@ Features at the moment include:
 - variation with 220x176 15 bit HAM8 mode
 - variation with 320x176 8 bit palette mode
 
-This has been tested with PhxAss and should compile simply by running:
+This has been tested mainly with PhxAss and should compile simply by running:
 	"phxass 8bpl-test.s"
 	"phxass ham-test.s"
+
+Using vasm should also work and I've tried it for cross compiling on macOS:
+	"vasmm68k 8bpl-test.s -Fhunkexe -o 8bpl-test"
+
+The main goal for this project is to keep it really simple to use and
+not require any external libraries or includes. I'm planning on adding C headers and a test program soon.
 
 The init stuff is mostly written by "some people".

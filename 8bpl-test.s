@@ -7,7 +7,7 @@
 	include "init.s"
 	include "init-8bpl.s"
 
-	section code
+	section	code,code
 
 main
 	bsr init ; switch off system and set custom copperlist etc
@@ -65,12 +65,12 @@ drawTestScreen
 	rts
 
 
-	section data, bss
+	section data,bss
 
 screen
 	blk.b 320*176,0
 
-	section data
+	section data,data
 
 texture
 	incbin "data/texture.uc"

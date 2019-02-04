@@ -5,7 +5,7 @@
 
 	include "c2p/c2p_2rgb555_3rgb555h8_040.s"
 
-	section code
+	section code,code
 
 sync: 	dc.l 0
 exitflag: dc.w 0
@@ -61,43 +61,43 @@ setBitplanes
 	move.w d0,bplptr1+2
 
 	swap d0
-	add.l #14080, d0
+	add.l #14080,d0
 	move.w d0,bplptr2+6
 	swap d0
 	move.w d0,bplptr2+2
 
 	swap d0
-	add.l #14080, d0
+	add.l #14080,d0
 	move.w d0,bplptr3+6
 	swap d0
 	move.w d0,bplptr3+2
 
 	swap d0
-	add.l #14080, d0
+	add.l #14080,d0
 	move.w d0,bplptr4+6
 	swap d0
 	move.w d0,bplptr4+2
 
 	swap d0
-	add.l #14080, d0
+	add.l #14080,d0
 	move.w d0,bplptr5+6
 	swap d0
 	move.w d0,bplptr5+2
 	
 	swap d0
-	add.l #14080, d0
+	add.l #14080,d0
 	move.w d0,bplptr6+6
 	swap d0
 	move.w d0,bplptr6+2
 
 	swap d0
-	add.l #14080, d0
+	add.l #14080,d0
 	move.w d0,bplptr7+6
 	swap d0
 	move.w d0,bplptr7+2
 
 	swap d0
-	add.l #14080, d0
+	add.l #14080,d0
 	move.w d0,bplptr8+6
 	swap d0
 	move.w d0,bplptr8+2
@@ -189,16 +189,16 @@ initC2P
 drawControlPattern
 	;a0 target bitplanes
 
-	move.l #(20*176-1), d0
+	move.l #(20*176-1),d0
 .loop
-	move.l #$6db6db6d, (a0)+
-	dbra d0, .loop
+	move.l #$6db6db6d,(a0)+
+	dbra d0,.loop
 
 
-	move.l #(20*176-1), d0
+	move.l #(20*176-1),d0
 .loop2
-	move.l #$db6db6db, (a0)+
-	dbra d0, .loop2
+	move.l #$db6db6db,(a0)+
+	dbra d0,.loop2
 
 	rts
 
