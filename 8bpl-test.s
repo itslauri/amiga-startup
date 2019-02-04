@@ -4,6 +4,9 @@
 
 	MACHINE 68020
 
+	include "init.s"
+	include "init-8bpl.s"
+
 	section code
 
 main
@@ -71,6 +74,3 @@ screen
 
 texture
 	incbin "data/texture.uc"
-
-
-	include "8bpl-init.s"

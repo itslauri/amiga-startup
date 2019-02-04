@@ -4,6 +4,9 @@
 
 	MACHINE 68020
 
+	include "init.s"
+	include "init-ham.s"
+
 	section code
 
 main
@@ -46,7 +49,7 @@ drawTestScreen
 .xloop
 		rept 10
 			move.w (a2)+,(a0)+
-			addq.l #2,a2 ; skip every other pixel
+			addq.l #2,a2 ; skip every other texture pixel
 		endr
 	dbra d1,.xloop
 
@@ -65,5 +68,3 @@ screen
 
 texture
 	incbin "data/texture.c15"
-
-	include "ham-init.s"
