@@ -1,17 +1,21 @@
 
-; test program for 8 bitplane startup code
+; test program for 8 bitplane startup code with ADPCM music
 ; compiles with PhxAss at least
 
 	MACHINE 68020
 
 	include "init.i"
 	include "init-8bpl.i"
+	include "adpcm/adpcm-player.i"
 
 	section	code,code
 
 main
 	bsr init ; switch off system and set custom copperlist etc
 	bsr initC2P ; set parameters for chunky to planar routine
+
+	lea soundtrack,a0
+	bsr initMusic
 
 	move.l #texture,d0
 	add.l #6,d0 ; skip .uc header in texture
@@ -29,6 +33,7 @@ main
 
 	beq .mainloop
 
+	bsr stopMusic
 	bsr deinit
 
 	rts
@@ -73,3 +78,5 @@ screen
 
 texture
 	incbin "data/texture.uc"
+soundtrack
+	incbin "data/whatthisisclip.wav"
