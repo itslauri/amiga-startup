@@ -4,8 +4,8 @@
 
 	MACHINE 68020
 
-	include "init.s"
-	include "init-ham.s"
+	include "init.i"
+	include "init-ham.i"
 
 	section code,code
 

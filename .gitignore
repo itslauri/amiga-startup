@@ -1,4 +1,4 @@
 # Add any directories, files, or patterns you don't want to be tracked by version control
 *.uaem
-ham-test
-8bpl-test
+testham
+test8bpl

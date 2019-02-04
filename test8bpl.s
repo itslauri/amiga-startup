@@ -4,8 +4,8 @@
 
 	MACHINE 68020
 
-	include "init.s"
-	include "init-8bpl.s"
+	include "init.i"
+	include "init-8bpl.i"
 
 	section	code,code
 
