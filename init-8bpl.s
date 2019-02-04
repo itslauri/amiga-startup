@@ -9,10 +9,10 @@
 sync: 	dc.l 0
 exitflag: dc.w 0
 vblflag: dc.w 0
-updatebitplanesflag: dc.w 0
-newbitplanes: dc.l 0
-updatepaletteflag: dc.w 0
-newpalette: dc.l 0
+updateBitplanesFlag: dc.w 0
+newBitplanes: dc.l 0
+updatePaletteFlag: dc.w 0
+newPalette: dc.l 0
 
 Lvl3irq:
 	movem.l	d0-a6,-(sp)
@@ -26,17 +26,17 @@ Lvl3irq:
 	move.w #1,exitflag
 .noclick
 
-	tst.w updatebitplanesflag
+	tst.w updateBitplanesFlag
 	beq .nonewbpls
-	move.w #0,updatebitplanesflag
-	move.l newbitplanes,a0
+	move.w #0,updateBitplanesFlag
+	move.l newBitplanes,a0
 	bsr setBitplanes
 .nonewbpls
 
-	tst.w updatepaletteflag
+	tst.w updatePaletteFlag
 	beq .nonewpal
-	move.w #0,updatepaletteflag
-	move.l newpalette,a0
+	move.w #0,updatePaletteFlag
+	move.l newPalette,a0
 	bsr setPalette
 .nonewpal
 
@@ -197,7 +197,7 @@ flipScreen
 	move.w #0,.currentScreen
 
 .cont
-	move.l a1,newbitplanes
+	move.l a1,newBitplanes
 	bsr c2p1x1_8_c5_gen
 
 	move.l sync,d0
@@ -208,7 +208,7 @@ flipScreen
 .cont2
 	move.l sync,.prevFlipTime
 
-	move.w #1,updatebitplanesflag ; vblank interrupt should pick this up
+	move.w #1,updateBitplanesFlag ; vblank interrupt should pick this up
 	rts
 
 .currentScreen dc.w 0
