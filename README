@@ -15,10 +15,13 @@ This has been tested mainly with PhxAss and should compile simply by running:
 	"phxass 8bpl-test.s"
 	"phxass ham-test.s"
 
-Using vasm should also work and I've tried it for cross compiling on macOS:
+Using vasm should also work and I've tried it for cross compiling on a Mac:
 	"vasmm68k 8bpl-test.s -Fhunkexe -o 8bpl-test"
 
-The main goal for this project is to keep it really simple to use and
-not require any external libraries or includes. I'm planning on adding C headers and a test program soon.
+The main goals for this project are to keep it really simple to use, not require
+any external libraries or includes and to support compiling on any OS.
+I'm planning on adding C headers and a test program soon.
 
 The init stuff is mostly written by "some people".
+
+If you need help talk to the old farts on #amycoders @ IRCNet

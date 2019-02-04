@@ -20,7 +20,6 @@ main
 		lea screen,a0
 		bsr flipScreen
 
-		bsr waitVBlank
 		tst.w exitflag
 
 	beq .mainloop
