@@ -1,5 +1,3 @@
-Hi
-
 Here are some basic 68k assembly startup sources for Amiga.
 
 Features at the moment include:
@@ -8,7 +6,7 @@ Features at the moment include:
 - setting an AGA screen mode and custom copperlist
 - setting up a chunky to planar routine (from Kalms)
 - handling triple buffering
-- setting a vblank interrupt for timing etc
+- setting a vertical blank interrupt for timing etc
 - updating copperlist with new bitplanes and/or palette in vblank
 - variation with 220x176 15 bit HAM8 mode
 - variation with 320x176 8 bit palette mode

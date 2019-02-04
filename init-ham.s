@@ -14,7 +14,7 @@ updatebitplanesflag: dc.w 0
 newbitplanes: dc.l 0
 
 Lvl3irq:
-	movem.l	d0-d7/a0-a6,-(sp)
+	movem.l	d0-a6,-(sp)
 
 	add.l	#1,sync
 
@@ -35,7 +35,7 @@ Lvl3irq:
 	lea		$dff000,a6
 	move.w	#$0020,Intreq(a6)
 	move.w	#$0020,Intreq(a6)
-	movem.l	(sp)+,d0-d7/a0-a6
+	movem.l	(sp)+,d0-a6
 	rte
 
 
@@ -53,7 +53,7 @@ waitVBlank
 setBitplanes
 	;lea bitplane1,a0
 
-	movem.l	d0-d7/a0-a6,-(a7)
+	movem.l	d0-a6,-(a7)
 
 	move.l a0,d0
 	move.w d0,bplptr1+6
@@ -102,7 +102,7 @@ setBitplanes
 	swap d0
 	move.w d0,bplptr8+2
 
-	movem.l	(a7)+,d0-d7/a0-a6
+	movem.l	(a7)+,d0-a6
 	rts
 
 
@@ -221,12 +221,11 @@ bitplanes3
 copperlist
 	dc.w	$0106,$0000,$01fc,$0000		; AGA compatible
 	dc.w	$008e
-	dc.w	$5281		; 320x200 screen       ;usually $2881 here
-	dc.w	$0090		; instead of the standard
-	dc.w	$02c1		; 320x256 one			;and $28c1 here
-	
-	dc.w	$0092,$0038,$0094
-dmafetchend		dc.w $00c0		; dma fetch start AGA FETCH MODE
+	dc.w	$5281		; 320x176 screen.  for 320x256 use $2881 here...
+	dc.w	$0090		; 
+	dc.w	$02c1		;		           ...and $28c1 here
+
+	dc.w	$0092,$0038,$0094,$00c0	; dma fetch start/end AGA FETCH MODE
 
 	dc.w	$0102,$0000
 	dc.w	$0104,$0000
@@ -249,7 +248,7 @@ bplcon dc.w	$8811				; ham8 hires
 
 	dc.w	$0180,$0000			; Color00 = black
 
-	dc.w $25cf, $fffe ; wait a bit in case vblank needs time
+	dc.w $10cf, $fffe ; wait a bit in case vblank needs time
 
 bplptr1	dc.w $00e0,$0000		; bitplane locations
 		dc.w $00e2,$0000

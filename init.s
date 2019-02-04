@@ -11,7 +11,7 @@
 Execbase = 4
 
 init
-	movem.l	d0-d7/a0-a6,-(a7)
+	movem.l	d0-a6,-(a7)
 	move.l	(Execbase).w,a6
 	lea	System(pc),a5
 	move.l	sp,Userstack(a5)
@@ -102,7 +102,7 @@ init
 	move.w	#$83c0,Dmacon(a6)	; Turn on needed DMA
 
 
-	movem.l	(a7)+,d0-d7/a0-a6
+	movem.l	(a7)+,d0-a6
 
 		rts
 
@@ -112,7 +112,7 @@ init
 
 
 deinit
-	movem.l	d0-d7/a0-a6,-(a7)
+	movem.l	d0-a6,-(a7)
 	movea.l a5store,a5
 	movea.l a6store,a6
 
@@ -142,7 +142,7 @@ deinit
 	jsr	Permit(a6)
 exit
 	moveq	#0,d0
-	movem.l	(a7)+,d0-d7/a0-a6
+	movem.l	(a7)+,d0-a6
 	rts
 
 
