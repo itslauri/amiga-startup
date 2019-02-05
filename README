@@ -24,7 +24,7 @@ This has been tested mainly with PhxAss and should compile simply by running:
 Using vasm should also work and I've tried it for cross compiling on a Mac:
 	"vasmm68k test8bpl.s -Fhunkexe -o test8bpl"
 
-The 8 bitplane test now includes music playback using an ADPCM routine from
+The 8 bpl test now includes music playback using an ADPCM routine from
 BriteLite. It has been tested to work with at least files saved using
 Audacity in .wav IMA 4:1 ADPCM format at a sample rate supported by Paula.
 

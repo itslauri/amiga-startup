@@ -10,8 +10,9 @@
 	section code,code
 
 main
-	bsr init ; switch off system and set custom copperlist etc
 	bsr initC2P ; set parameters for chunky to planar routine and setup bitplanes
+	bsr init ; switch off system and set custom copperlist etc
+	move.l #copperlist,$dff080	; Set our copperlist
 
 .mainloop
 	

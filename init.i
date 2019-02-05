@@ -97,8 +97,6 @@ init
  	move.l a5,a5store
  	move.l a6,a6store
 
-	move.l #copperlist,$dff080	; Set our copperlist
-
 	move.w	#$83c0,Dmacon(a6)	; Turn on needed DMA
 
 
