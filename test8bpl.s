@@ -13,7 +13,7 @@
 main
 	bsr initC2P ; set parameters for chunky to planar routine
 	bsr init ; switch off system and set custom copperlist etc
-	move.l #copperlist,$dff080	; Set our copperlist
+	move.l #copperlist8bpl,$dff080	; Set our copperlist
 
 	lea soundtrack,a0
 	bsr initMusic

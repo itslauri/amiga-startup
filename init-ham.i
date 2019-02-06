@@ -218,7 +218,7 @@ bitplanes3
 
 	section chipmem, data_c
 
-copperlist
+copperlistHam8
 	dc.w	$0106,$0000,$01fc,$0000		; AGA compatible
 	dc.w	$008e
 	dc.w	$5281		; 320x176 screen.  for 320x256 use $2881 here...
@@ -241,10 +241,9 @@ copperlist
 	dc.w	$0138,$0000,$013a,$0000
 	dc.w	$013c,$0000,$013e,$0000
 	
-	dc.w	$0100
-bplcon dc.w	$8811				; ham8 hires
+	dc.w	$0100,$8811				; ham8 hires
 	
-	dc.w	$01fc, $0003		; AGA fetch mode
+	dc.w	$01fc,$0003		; AGA fetch mode
 
 	dc.w	$0180,$0000			; Color00 = black
 

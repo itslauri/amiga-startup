@@ -241,40 +241,38 @@ bitplanes3
 	blk.b 320*176,0
 	
 
-********************** copperlist *************
+**************************************
+************* Copperlist *************
+**************************************
 
 	section chipmem, data_c
 
-copperlist
-	dc.w	$0106,$0000,$01fc,$0000		; AGA compatible
-	dc.w	$008e
+copperlist8bpl
+	dc.w	BPLCON3,$0000,FMODE,$0000
+	dc.w	BPLCON0,$0011				; 8 bitplanes, ECS features enabled
+	dc.w	FMODE,$0003		; AGA fetch mode
+	dc.w	DDFSTRT,$0038,DDFSTOP,$00a0	; dma fetch start AGA FETCH MODE
+
+						; You need to change these values to modify the screen height
+	dc.w	DIWSTRT
 	dc.w	$5281		; 320x176 screen       ;for 320x256 use $2881 here
-	dc.w	$0090		; 
-	dc.w	$02c1		;			;and $28c1 here
+	dc.w	DIWSTOP		; 
+	dc.w	$02c1		;			           ;and $28c1 here
 	
-	dc.w	$0092,$0038,$0094,$00a0	;dma fetch start AGA FETCH MODE
-
-	dc.w	$0102,$0000
-	dc.w	$0104,$0000
-	dc.w    $0108,0
-	dc.w 	$010A,0
+	dc.w	BPLCON1,$0000
+	dc.w	BPLCON2,$0000
+	dc.w    BPL1MOD,$0000
+	dc.w 	BPL2MOD,$0000
 	
-	dc.w	$0120,$0000,$0122,$0000		; Clear spriteptrs
-	dc.w	$0124,$0000,$0126,$0000
-	dc.w	$0128,$0000,$012a,$0000
-	dc.w	$012c,$0000,$012e,$0000
-	dc.w	$0130,$0000,$0132,$0000
-	dc.w	$0134,$0000,$0136,$0000
-	dc.w	$0138,$0000,$013a,$0000
-	dc.w	$013c,$0000,$013e,$0000
-	
-	dc.w	$0100
-bplcon dc.w	$0011				; 8bpl
-	
-	dc.w	$01fc, $0003		; AGA fetch mode
-
-	dc.w	$0180,$0000			; Color00 = black
-
+	dc.w	SPR0PTH,$0000,SPR0PTL,$0000		; Clear sprite pointers
+	dc.w	SPR1PTH,$0000,SPR1PTL,$0000
+	dc.w	SPR2PTH,$0000,SPR2PTL,$0000
+	dc.w	SPR3PTH,$0000,SPR3PTL,$0000
+	dc.w	SPR4PTH,$0000,SPR4PTL,$0000
+	dc.w	SPR5PTH,$0000,SPR5PTL,$0000
+	dc.w	SPR6PTH,$0000,SPR6PTL,$0000
+	dc.w	SPR7PTH,$0000,SPR7PTL,$0000
+		
 	dc.w $10cf, $fffe ; wait a bit in case vblank interrupt needs time to update palette and bitplanes below
 
 paletteCopperlist
@@ -289,21 +287,21 @@ COLORREGVAL set COLORREGVAL+$2
 BPLCON3VAL set BPLCON3VAL+$2000
 	endr
 
-bplptr1	dc.w $00e0,$0000		; bitplane locations
-		dc.w $00e2,$0000
-bplptr2	dc.w $00e4,$0000
-		dc.w $00e6,$0000
-bplptr3	dc.w $00e8,$0000
-		dc.w $00ea,$0000
-bplptr4	dc.w $00ec,$0000
-		dc.w $00ee,$0000
-bplptr5	dc.w $00f0,$0000
-		dc.w $00f2,$0000
-bplptr6	dc.w $00f4,$0000
-		dc.w $00f6,$0000
-bplptr7	dc.w $00f8,$0000
-		dc.w $00fa,$0000
-bplptr8	dc.w $00fc,$0000
-		dc.w $00fe,$0000
+bplptr1	dc.w BPL1PTH,$0000		; bitplane pointers
+		dc.w BPL1PTL,$0000
+bplptr2	dc.w BPL2PTH,$0000
+		dc.w BPL2PTL,$0000
+bplptr3	dc.w BPL3PTH,$0000
+		dc.w BPL3PTL,$0000
+bplptr4	dc.w BPL4PTH,$0000
+		dc.w BPL4PTL,$0000
+bplptr5	dc.w BPL5PTH,$0000
+		dc.w BPL5PTL,$0000
+bplptr6	dc.w BPL6PTH,$0000
+		dc.w BPL6PTL,$0000
+bplptr7	dc.w BPL7PTH,$0000
+		dc.w BPL7PTL,$0000
+bplptr8	dc.w BPL8PTH,$0000
+		dc.w BPL8PTL,$0000
 
 	dc.w $ffff, $fffe
