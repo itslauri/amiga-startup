@@ -4,22 +4,24 @@
 
 	MACHINE 68020
 
+	bra main
+
 	include "init.i"
 	include "init-ham.i"
 
 	section code,code
 
 main
-	bsr initC2P ; set parameters for chunky to planar routine and setup bitplanes
+	bsr initC2PHam ; set parameters for chunky to planar routine and setup bitplanes
 	bsr init ; switch off system and set custom copperlist etc
-	move.l #copperlistHam8,$dff080	; Set our copperlist
+	move.l #copperlistHam,$dff080	; Set our copperlist
 
 .mainloop
 	
 		bsr drawTestScreen
 
 		lea screen,a0
-		bsr flipScreen
+		bsr flipScreenHam
 
 		tst.w exitflag
 

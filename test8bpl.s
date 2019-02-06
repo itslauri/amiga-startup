@@ -4,6 +4,8 @@
 
 	MACHINE 68020
 
+	bra main
+
 	include "init.i"
 	include "init-8bpl.i"
 	include "adpcm/adpcm-player.i"
@@ -11,7 +13,7 @@
 	section	code,code
 
 main
-	bsr initC2P ; set parameters for chunky to planar routine
+	bsr initC2P8bpl ; set parameters for chunky to planar routine
 	bsr init ; switch off system and set custom copperlist etc
 	move.l #copperlist8bpl,$dff080	; Set our copperlist
 

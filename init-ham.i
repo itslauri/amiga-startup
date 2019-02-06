@@ -107,7 +107,7 @@ setBitplanes
 
 
 
-flipScreen
+flipScreenHam
 	; a0 = chunky screen
 	; handles triple buffering for bitplanes
 	; sets flag for bitplanes to be set in vblank interrupt
@@ -155,7 +155,7 @@ flipScreen
 
 
 
-initC2P
+initC2PHam
 ; init c2p
 ; params for init:
 ; d0.w	chunkyx [chunky-pixels]
@@ -176,18 +176,19 @@ initC2P
 
 		; write control bitplane patterns for this particular c2p
 	lea bitplanes1,a0 
-	bsr drawControlPattern
+	bsr writeHamControlBitplanes
 	lea bitplanes2,a0
-	bsr drawControlPattern
+	bsr writeHamControlBitplanes
 	lea bitplanes3,a0
-	bsr drawControlPattern
+	bsr writeHamControlBitplanes
 
 	rts
 
 
 
-drawControlPattern
-	;a0 target bitplanes
+writeHamControlBitplanes
+	; a0 target bitplanes
+	; write control bitplane patterns for c2p_2rgb555_3rgb555h8_040
 
 	move.l #(20*176-1),d0
 .loop
@@ -218,7 +219,7 @@ bitplanes3
 
 	section chipmem, data_c
 
-copperlistHam8
+copperlistHam
 	dc.w	BPLCON3,$0000
 	dc.w	BPLCON0,$8811	; 8 bitplanes, HAM, hires, ECS enabled
 	dc.w	FMODE,$0003		; AGA fetch mode

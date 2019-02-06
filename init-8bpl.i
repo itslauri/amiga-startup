@@ -124,11 +124,12 @@ setBitplanes
 setPalette
 
 	movem.l	d0-a6,-(a7)
-	lea paletteCopperlist,a1
+	lea copperlistPalette,a1
 
-	move.l	#255,d0
 	move.l	#$f0f0f0f0,d3
 	move.l	#$0f0f0f00,d4
+
+	move.l	#256-1,d0
 .putcol	
 	move.l	(a0)+,d1
 	lsl.l #8,d1
@@ -216,7 +217,7 @@ flipScreen8bpl
 
 
 
-initC2P
+initC2P8bpl
 	; init c2p
 
 	; d0.w	chunkyx [chunky-pixels]
@@ -275,7 +276,7 @@ copperlist8bpl
 		
 	dc.w $10cf, $fffe ; wait a bit in case vblank interrupt needs time to update palette and bitplanes below
 
-paletteCopperlist
+copperlistPalette
 	; generate AGA palette copperlist
 BPLCON3VAL set $0020
 	rept 8

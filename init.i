@@ -6,8 +6,6 @@
 	include	include/libraries.i
 	include	include/hardware.i
 
-	bra main
-
 Execbase = 4
 
 init
@@ -94,8 +92,8 @@ init
 	move.w	#$c020,Intena(a6)
 
  ********************************
- 	move.l a5,a5store
- 	move.l a6,a6store
+ 	move.l a5,inita5store
+ 	move.l a6,inita6store
 
 	move.w	#$83c0,Dmacon(a6)	; Turn on needed DMA
 
@@ -111,8 +109,8 @@ init
 
 deinit
 	movem.l	d0-a6,-(a7)
-	movea.l a5store,a5
-	movea.l a6store,a6
+	movea.l inita5store,a5
+	movea.l inita6store,a6
 
 	move.l	#$7fff7fff,d0
 	move.w	d0,Dmacon(a6)
@@ -175,8 +173,8 @@ Setup:
 	dc.l	$bfd000
 	dc.l	$dff000
 
-a5store	dc.l 0
-a6store dc.l 0
+inita5store	dc.l 0
+inita6store dc.l 0
 
 		rsreset
 
