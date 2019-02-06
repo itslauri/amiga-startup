@@ -1,4 +1,4 @@
-*WORK IN PROGRESS*
+**WORK IN PROGRESS**
 
 Here are some fairly basic m68k asm demo startup sources for Amiga 1200/4000.
 
@@ -21,6 +21,7 @@ any OS. I'm planning on adding C headers and a test program soon.
 This has been tested mainly with PhxAss and should compile simply by running:
 
 > phxass test8bpl.s
+
 > phxass testham.s
 
 Using vasm should also work and I've tried it for cross compiling on a Mac:
