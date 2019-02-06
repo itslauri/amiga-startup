@@ -248,20 +248,20 @@ bitplanes3
 	section chipmem, data_c
 
 copperlist8bpl
-	dc.w	BPLCON3,$0000,FMODE,$0000
-	dc.w	BPLCON0,$0011				; 8 bitplanes, ECS features enabled
+	dc.w	BPLCON3,$0000
+	dc.w	BPLCON0,$0011	; 8 bitplanes, ECS features enabled
 	dc.w	FMODE,$0003		; AGA fetch mode
 	dc.w	DDFSTRT,$0038,DDFSTOP,$00a0	; dma fetch start AGA FETCH MODE
 
 						; You need to change these values to modify the screen height
 	dc.w	DIWSTRT
-	dc.w	$5281		; 320x176 screen       ;for 320x256 use $2881 here
+	dc.w	$5281		; 320x176 screen       ; for 320x256 use $2881 here
 	dc.w	DIWSTOP		; 
-	dc.w	$02c1		;			           ;and $28c1 here
+	dc.w	$02c1		;			           ; and $28c1 here
 	
 	dc.w	BPLCON1,$0000
 	dc.w	BPLCON2,$0000
-	dc.w    BPL1MOD,$0000
+	dc.w	BPL1MOD,$0000
 	dc.w 	BPL2MOD,$0000
 	
 	dc.w	SPR0PTH,$0000,SPR0PTL,$0000		; Clear sprite pointers
