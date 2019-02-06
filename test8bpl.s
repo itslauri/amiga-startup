@@ -28,7 +28,7 @@ main
 		bsr drawTestScreen
 
 		lea screen,a0
-		bsr flipScreen
+		bsr flipScreen8bpl
 
 		tst.w exitflag
 
@@ -46,13 +46,13 @@ drawTestScreen
 
 	lea screen,a0
 	lea texture,a1
+	adda.l #6+256*4,a1 ; skip .uc header and palette
 
 	move.l sync,d2 ; sync is our global timer incremented in vblank interrupt 50 times a second
 	move.l #176-1,d0
 .yloop
 
 	movea.l a1,a2
-	adda.l #6+256*4,a2 ; skip header and palette
 	adda.l d2,a2
 
 	move.l #(320/8)-1,d1

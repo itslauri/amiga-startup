@@ -169,7 +169,7 @@ setPalette
 
 
 
-flipScreen
+flipScreen8bpl
 	; a0 = chunky screen
 	; handles triple buffering for bitplanes
 	; sets flag for bitplanes to be set in vblank interrupt

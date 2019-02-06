@@ -1,5 +1,5 @@
 
-; test program for ham startup code
+; test program for ham8 startup code
 ; compiles with PhxAss at least
 
 	MACHINE 68020
