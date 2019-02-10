@@ -4,7 +4,7 @@
 
 	MACHINE 68020
 
-	bra main
+	jmp main
 
 	include "init.i"
 	include "init-ham.i"

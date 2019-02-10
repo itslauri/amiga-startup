@@ -4,7 +4,7 @@
 
 	MACHINE 68020
 
-	bra main
+	jmp main
 
 	include "init.i"
 	include "init-8bpl.i"
@@ -58,6 +58,7 @@ drawTestScreen
 	adda.l d2,a2
 
 	move.l #(320/8)-1,d1
+
 .xloop
 		rept 8
 			move.b (a2)+,(a0)+
